@@ -2048,8 +2048,12 @@
 						groups[optgroup] = [];
 						groups_order.push(optgroup);
 					}
-					// unique markup
-					if (groups[optgroup].indexOf(option_html) === -1) {
+					// unique markup when sticky
+					if (self.settings.stickies.length > 0) {
+						if (groups[optgroup].indexOf(option_html) === -1) {
+							groups[optgroup].push(option_html);
+						}
+					} else {
 						groups[optgroup].push(option_html);
 					}
 				}
